@@ -61,7 +61,7 @@ export const CitizenDashboard = () => {
           className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white text-emerald-900 font-bold text-xs shadow-sm hover:bg-emerald-50 hover:-translate-y-0.5 transition-all shrink-0"
         >
           <FilePlus className="w-4 h-4 text-emerald-700" />
-          <span>Report New Grievance</span>
+          <span className ="text-black">Report New Grievance</span>
         </Link>
       </div>
 
