@@ -286,47 +286,6 @@ Execute all test suites with:
 ```bash
 npm test
 ```
-
-### Verified Execution Output (27 / 27 Tests Passed):
-```
-▶ Citizen vs Official Authentication & Segregation Test Suite
-  ✔ 1. Registration strictly forces citizen role, even if role=admin is requested (442ms)
-  ✔ 2. Provision test official accounts (worker, manager, admin) (336ms)
-  ✔ 3. Citizen login successfully returns verified citizen role (464ms)
-  ✔ 4. Official logins return verified staff roles (407ms)
-  ✔ 5. Invalid credentials return 401 error (493ms)
-  ✔ 6. Citizen barred from official-only backend operations (116ms)
-  ✔ 7. Case worker barred from administrative user management (35ms)
-  ✔ 8. Unauthenticated access to /api/auth/me or /api/dashboard rejected with 401 (11ms)
-  ✔ 9. Logout clears civic_session cookie (9ms)
-✔ Citizen vs Official Authentication & Segregation Test Suite (4694ms)
-
-✔ email validation rejects malformed addresses (0.58ms)
-✔ password policy requires length and mixed case with a digit (0.18ms)
-✔ workflow allows only documented status transitions (0.53ms)
-✔ user schema supports auth and account administration operations (0.98ms)
-✔ grievance schema stores owner, assignment, SLA, and workflow audit references (0.24ms)
-✔ status and assignment audit records keep actor references and transition data (0.09ms)
-
-▶ Civic Pulse Full End-to-End Workflow & Security Suite
-  ✔ 1. Registration enforces citizen role and input validation (1328ms)
-  ✔ 2. Provision staff accounts directly in DB for testing (167ms)
-  ✔ 3. Login authentication returns session cookies and user profiles (1173ms)
-  ✔ 4. Citizen submits grievance with SLA priority deadline calculation (330ms)
-  ✔ 5. Citizen data isolation: citizen cannot view another citizen private case (123ms)
-  ✔ 6. Non-manager cannot assign case, manager can assign to active worker (176ms)
-  ✔ 7. Workflow transitions: strict validation & resolution note requirements (557ms)
-  ✔ 8. Reopening requires reason and restores case to In Progress (283ms)
-  ✔ 9. Dashboard stats accurately reflect real database metrics (301ms)
-  ✔ 10. Role boundaries and unauthenticated access restrictions (109ms)
-✔ Civic Pulse Full End-to-End Workflow & Security Suite (6912ms)
-
-ℹ tests 27
-ℹ suites 0
-ℹ pass 27
-ℹ fail 0
-```
-
 ---
 
 ## 10. REST API Contract Summary
@@ -354,10 +313,3 @@ Authentication: Cookie-based JWT (`civic_session`)
 | `PATCH`| `/api/users/:id/active` | `admin` | Activate or deactivate user accounts. |
 
 ---
-
-## 11. Project Documentation Index
-
-- **[docs/REQUIREMENTS.md](docs/REQUIREMENTS.md):** Complete functional specification, user personas, SLA matrices, and lifecycle states.
-- **[docs/API_CONTRACT.md](docs/API_CONTRACT.md):** Exhaustive REST API reference with sample request payloads, query parameters, and response schemas.
-- **[docs/DATABASE_SCHEMA.md](docs/DATABASE_SCHEMA.md):** MongoDB schema definitions, field types, validation constraints, and indexes.
-- **[AGENTS.md](AGENTS.md):** Developer architecture guide, security boundaries, and operational instructions.
