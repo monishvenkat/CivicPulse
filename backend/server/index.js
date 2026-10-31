@@ -848,14 +848,7 @@ app.patch('/api/users/:id/active', allow('admin'), async (req, res) => {
   res.json({ user: safeUser(user), message: `Account ${user.active ? 'activated' : 'deactivated'}.` });
 });
 
-// Production static file serving
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.resolve(here, '../../frontend/dist')));
-  app.get('/{*path}', (req, res, next) => {
-    if (req.path.startsWith('/api/')) return next();
-    res.sendFile(path.resolve(here, '../../frontend/dist/index.html'));
-  });
-}
+// Frontend is served separately on Vercel — no static file serving needed here
 
 // Global error handler
 app.use((err, req, res, next) => {
