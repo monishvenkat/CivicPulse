@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: civicpulse-backend
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: node server/index.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGO_URI
+        sync: false          # set this manually in Render dashboard
+      - key: JWT_SECRET
+        sync: false          # set this manually in Render dashboard
+      - key: COOKIE_SECURE
+        value: "true"
+      - key: CLIENT_ORIGIN
+        sync: false          # set to your frontend URL
